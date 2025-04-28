@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Blocks } from "lucide-react"
+import { Blocks, Building, ExternalLink } from "lucide-react"
 import { CardContent } from "@/components/ui/card"
 
 export default function ProjectsSection() {
@@ -29,6 +29,16 @@ export default function ProjectsSection() {
   }
 
   const projects = [
+    {
+      title: "Indian Bank Finder",
+      description:
+        "A comprehensive web application that allows users to easily search and find IFSC codes, branch details, and other banking information for Indian banks. Features include instant search, detailed bank information, and a user-friendly interface for seamless navigation.",
+      period: "2025",
+      technologies: ["Next.js", "React", "Tailwind CSS", "API Integration", "Responsive Design"],
+      image: "/images/indian-bank-ifsc-code.jpg",
+      color: "purple",
+      link: "https://indianbankfinder.vercel.app/",
+    },
     {
       title: "Enhancing Supply Chain Transparency with Blockchain Technology",
       description:
@@ -70,14 +80,18 @@ export default function ProjectsSection() {
               className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-gray-600 transition-all hover:shadow-lg hover:shadow-cyan-500/5"
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain p-4"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent flex items-center justify-center md:hidden">
-                    <Blocks className="h-16 w-16 text-cyan-500 opacity-50" />
+                    {project.title.includes("Bank") ? (
+                      <Building className="h-16 w-16 text-purple-500 opacity-50" />
+                    ) : (
+                      <Blocks className="h-16 w-16 text-cyan-500 opacity-50" />
+                    )}
                   </div>
                 </div>
 
@@ -99,6 +113,18 @@ export default function ProjectsSection() {
                       </span>
                     ))}
                   </div>
+
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white transition-colors"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Visit Website
+                    </a>
+                  )}
                 </CardContent>
               </div>
             </motion.div>
