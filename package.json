@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
+    "@radix-ui/react-slot": "^1.0.2",
     "@tsparticles/engine": "latest",
     "@tsparticles/react": "latest",
     "@tsparticles/slim": "latest",
