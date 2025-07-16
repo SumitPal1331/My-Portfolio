@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Blocks, Building, ExternalLink } from "lucide-react"
+import { Blocks, Building, ExternalLink, Bluetooth } from "lucide-react"
 import { CardContent } from "@/components/ui/card"
 
 export default function ProjectsSection() {
@@ -30,6 +30,16 @@ export default function ProjectsSection() {
 
   const projects = [
     {
+      title: "Chat Bluetooth",
+      description:
+        "An innovative real-time chat application that leverages Bluetooth technology for seamless communication. Features include peer-to-peer messaging, device discovery, and secure Bluetooth connections for local area networking without internet dependency.",
+      period: "2025",
+      technologies: ["Next.js", "React", "Bluetooth API", "WebRTC", "Real-time Communication", "PWA"],
+      image: "/images/chat-bluetooth.jpg",
+      color: "emerald",
+      link: "https://chat-bluetooth.vercel.app/",
+    },
+    {
       title: "Indian Bank Finder",
       description:
         "A comprehensive web application that allows users to easily search and find IFSC codes, branch details, and other banking information for Indian banks. Features include instant search, detailed bank information, and a user-friendly interface for seamless navigation.",
@@ -39,15 +49,7 @@ export default function ProjectsSection() {
       color: "purple",
       link: "https://indianbankfinder.vercel.app/",
     },
-    {
-      title: "Enhancing Supply Chain Transparency with Blockchain Technology",
-      description:
-        "A blockchain-based solution to improve transparency and traceability in supply chains, reducing fraud and ensuring product authenticity.",
-      period: "12/2024 - 01/2025",
-      technologies: ["Blockchain", "Smart Contracts", "Web3", "React"],
-      image: "/images/blockchain.jpg",
-      color: "cyan",
-    },
+    
   ]
 
   return (
@@ -87,7 +89,9 @@ export default function ProjectsSection() {
                     className="w-full h-full object-contain p-4"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent flex items-center justify-center md:hidden">
-                    {project.title.includes("Bank") ? (
+                    {project.title.includes("Chat") ? (
+                      <Bluetooth className="h-16 w-16 text-emerald-500 opacity-50" />
+                    ) : project.title.includes("Bank") ? (
                       <Building className="h-16 w-16 text-purple-500 opacity-50" />
                     ) : (
                       <Blocks className="h-16 w-16 text-cyan-500 opacity-50" />
@@ -119,7 +123,7 @@ export default function ProjectsSection() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white transition-colors"
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-${project.color}-500 to-${project.color === "emerald" ? "cyan" : project.color === "purple" ? "cyan" : "purple"}-500 hover:from-${project.color}-600 hover:to-${project.color === "emerald" ? "cyan" : project.color === "purple" ? "cyan" : "purple"}-600 text-white transition-colors`}
                     >
                       <ExternalLink className="h-4 w-4" />
                       Visit Website
