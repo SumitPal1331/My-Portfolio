@@ -36,6 +36,18 @@ export default function CertificatesSection() {
       color: "cyan",
     },
     {
+      title: "Generative AI Fundamentals",
+      issuer: "Analytics Vidha",
+      period: "07/2022",
+      color: "purple",
+    },
+    {
+      title: "Google AI Essentials",
+      issuer: "Coursera",
+      period: "07/2025",
+      color: "emerald",
+    },
+    {
       title: "API Testing Fundamentals Expert",
       issuer: "Postman",
       period: "",
