@@ -56,17 +56,13 @@ export default function AboutSection() {
 
             <div className="space-y-4 text-gray-300">
               <p>
-                I'm a versatile technologist with dual expertise in AI/ML engineering and full-stack development. My
-                passion lies in building intelligent systems, optimizing algorithms, and securing scalable applications.
+                {"I'm a multidisciplinary engineer specializing in cybersecurity, Android development, and AI/ML with proven expertise in building secure, scalable mobile applications."}
               </p>
               <p>
-                With a strong foundation in Python, TensorFlow, and data structures for AI/ML, combined with React.js
-                and SQL for full-stack development, I bring a comprehensive skill set to tackle complex technical
-                challenges.
+                As an experienced Ethical Hacker with hands-on Red Team operations, I bring a security-first mindset to every project. My skills span Kotlin, Jetpack Compose, and Firebase for Android, combined with TensorFlow, PyTorch, and Scikit-learn for AI/ML.
               </p>
               <p>
-                My cybersecurity background, including ethical hacking certification (CCNA) and API testing (Postman),
-                allows me to build not just functional but secure applications.
+                {"I'm passionate about integrating intelligent security into every layer of software development, from API vulnerabilities to ML-powered threat detection."}
               </p>
             </div>
           </motion.div>

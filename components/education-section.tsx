@@ -30,17 +30,17 @@ export default function EducationSection() {
 
   const education = [
     {
-      degree: "Master of Computer Applications (MCA)",
-      institution: "AMITY UNIVERSITY, NOIDA",
-      period: "07/2023 - Present",
-      location: "INDIA",
+      degree: "Master of Computer Applications (MCA) - Information Technology",
+      institution: "Amity University, Greater Noida Campus",
+      period: "July 2023 - July 2025",
+      location: "India",
       color: "cyan",
     },
     {
-      degree: "Bachelor of Computer Applications (BCA)",
-      institution: "Institute of Technology and Science, Ghaziabad",
-      period: "07/2019 - 07/2022",
-      location: "INDIA",
+      degree: "Bachelor of Computer Applications (BCA) - Information Technology",
+      institution: "Institute of Technology & Science, Ghaziabad",
+      period: "2019 - 2022",
+      location: "India",
       color: "purple",
     },
   ]

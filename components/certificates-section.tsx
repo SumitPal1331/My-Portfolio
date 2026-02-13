@@ -30,34 +30,16 @@ export default function CertificatesSection() {
 
   const certificates = [
     {
-      title: "Ethical Hacking & CCNA",
-      issuer: "DuCat Institute",
-      period: "01/2021 - 02/2022",
+      title: "Tata GenAI Powered Data Analytics Job Simulation",
+      issuer: "Forage",
+      period: "",
       color: "cyan",
     },
     {
-      title: "Generative AI Fundamentals",
-      issuer: "Analytics Vidha",
-      period: "07/2022",
-      color: "purple",
-    },
-    {
-      title: "Google AI Essentials",
-      issuer: "Coursera",
-      period: "07/2025",
-      color: "emerald",
-    },
-    {
-      title: "API Testing Fundamentals Expert",
-      issuer: "Postman",
+      title: "Tata Data Visualisation: Empowering Business with Effective Insights",
+      issuer: "Forage",
       period: "",
       color: "purple",
-    },
-    {
-      title: "NIELIT CCC",
-      issuer: "NIELIT",
-      period: "",
-      color: "emerald",
     },
   ]
 
@@ -82,7 +64,7 @@ export default function CertificatesSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {certificates.map((certificate, index) => (
             <motion.div

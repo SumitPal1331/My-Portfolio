@@ -45,13 +45,13 @@ export default function HeroSection() {
           <div className="h-16 md:h-20 mb-6">
             <TypeAnimation
               sequence={[
-                "Full Stack Developer",
+                "Cybersecurity Engineer",
+                1000,
+                "Android Developer",
                 1000,
                 "AI/ML Engineer",
                 1000,
-                "Cybersecurity Engineer",
-                1000,
-                "Cybersecurity Enthusiast",
+                "Ethical Hacker",
                 1000,
               ]}
               wrapper="h2"
@@ -67,8 +67,8 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
           >
-            Versatile technologist with expertise in AI/ML engineering and full-stack development. Passionate about
-            building intelligent systems, optimizing algorithms, and securing scalable applications.
+            Multidisciplinary engineer specializing in cybersecurity, Android development, and AI/ML. Passionate about
+            integrating intelligent security into every layer of software development.
           </motion.p>
 
           <motion.div
