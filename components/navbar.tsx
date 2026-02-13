@@ -69,12 +69,14 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <Button
-            className="ml-4 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white"
-            size="sm"
-          >
-            Resume
-          </Button>
+          <a href="/resume/Sumit-Pal-Resume-2026.pdf" target="_blank" rel="noopener noreferrer">
+            <Button
+              className="ml-4 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white"
+              size="sm"
+            >
+              Resume
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -105,9 +107,11 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Button className="mt-4 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white">
-              Resume
-            </Button>
+            <a href="/resume/Sumit-Pal-Resume-2026.pdf" target="_blank" rel="noopener noreferrer">
+              <Button className="mt-4 w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white">
+                Resume
+              </Button>
+            </a>
           </div>
         </motion.div>
       )}
