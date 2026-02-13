@@ -57,36 +57,36 @@ export default function ExperienceSection() {
             <motion.div variants={itemVariants} className="relative flex flex-col md:flex-row items-center">
               <div className="flex-1 md:text-right md:pr-8 mb-4 md:mb-0">
                 <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all hover:shadow-lg hover:shadow-cyan-500/5">
-                  <h3 className="text-xl font-semibold text-white mb-2">Penetration Tester (Red Team)</h3>
-                  <p className="text-cyan-500 mb-2">CyberSapiens United LLP | Internship</p>
-                  <p className="text-gray-400 mb-4">10/2023 - 04/2024, INDIA</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">Ethical Hacker (Red Team)</h3>
+                  <p className="text-cyan-500 mb-2">CyberSapiens</p>
+                  <p className="text-gray-400 mb-4">November 2022 - April 2023, India</p>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-cyan-500 mt-0.5 flex-shrink-0" />
-                      <p className="text-gray-300">Worked on Live Websites to find vulnerabilities and exploit them</p>
+                      <p className="text-gray-300">Conducted penetration testing and vulnerability assessments on web applications, mobile apps, and network infrastructure</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
                       <p className="text-gray-300">
-                        Used tools like Nessus, Nmap, Dirbuster, EnumforLinux, Smbclient for footprinting
+                        Identified and documented critical security vulnerabilities including SQL injection, XSS, and authentication bypass flaws
                       </p>
                     </div>
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                       <p className="text-gray-300">
-                        Exploited SSH, FTP, SMB Ports and worked on File Upload Vulnerability
+                        Collaborated with development teams to implement secure coding practices and remediation strategies
                       </p>
                     </div>
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-cyan-500 mt-0.5 flex-shrink-0" />
                       <p className="text-gray-300">
-                        Used SQL Injections to upload and retrieve information on target websites
+                        Performed social engineering assessments and security awareness training for organizational stakeholders
                       </p>
                     </div>
                     <div className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
                       <p className="text-gray-300">
-                        Exploited XSS (Cross Site Scripting) including reflected, stored, blind and time delay XSS
+                        Delivered comprehensive security reports with actionable recommendations aligned with OWASP standards
                       </p>
                     </div>
                   </div>

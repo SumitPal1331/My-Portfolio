@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Blocks, Building, ExternalLink, Bluetooth } from "lucide-react"
+import { Blocks, Building, ExternalLink, ShoppingCart, Network, Shield } from "lucide-react"
 import { CardContent } from "@/components/ui/card"
 
 export default function ProjectsSection() {
@@ -30,14 +30,37 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: "Chat Bluetooth",
+      title: "Secure Android E-Commerce Application",
       description:
-        "An innovative real-time chat application that leverages Bluetooth technology for seamless communication. Features include peer-to-peer messaging, device discovery, and secure Bluetooth connections for local area networking without internet dependency.",
+        "Built end-to-end encrypted Android shopping app with 10,000+ test users, implementing secure payment gateway integration. Designed MVVM architecture with Firebase Authentication, Firestore, and Cloud Functions. Implemented certificate pinning, ProGuard obfuscation, and runtime security checks. Integrated ML-based fraud detection system reducing fraudulent transactions by 35%.",
       period: "2025",
-      technologies: ["Next.js", "React", "Bluetooth API", "WebRTC", "Real-time Communication", "PWA"],
-      image: "/images/chat-bluetooth.jpg",
+      technologies: ["Kotlin", "Firebase", "Jetpack Compose", "OAuth2.0"],
+      image: "",
       color: "emerald",
-      link: "https://chat-bluetooth.vercel.app/",
+      link: "",
+      icon: "shopping",
+    },
+    {
+      title: "ML-Powered Network Intrusion Detection System",
+      description:
+        "Developed machine learning model achieving 94% accuracy in detecting network anomalies and malicious traffic patterns. Processed and analyzed 500K+ network packets using feature engineering and ensemble learning techniques. Created real-time alerting dashboard for SOC teams with automated threat classification and incident prioritization.",
+      period: "2025",
+      technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
+      image: "",
+      color: "cyan",
+      link: "",
+      icon: "network",
+    },
+    {
+      title: "API Security Testing Framework",
+      description:
+        "Automated REST API security testing framework identifying authentication, authorization, and injection vulnerabilities. Reduced manual testing time by 60% through custom scripts for OWASP API Security Top 10 validation.",
+      period: "2025",
+      technologies: ["Python", "Burp Suite", "OWASP ZAP", "Postman"],
+      image: "",
+      color: "red",
+      link: "",
+      icon: "shield",
     },
     {
       title: "Indian Bank Finder",
@@ -48,8 +71,8 @@ export default function ProjectsSection() {
       image: "/images/indian-bank-ifsc-code.jpg",
       color: "purple",
       link: "https://indianbankfinder.vercel.app/",
+      icon: "building",
     },
-    
   ]
 
   return (
@@ -82,21 +105,26 @@ export default function ProjectsSection() {
               className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-gray-600 transition-all hover:shadow-lg hover:shadow-cyan-500/5"
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-contain p-4"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent flex items-center justify-center md:hidden">
-                    {project.title.includes("Chat") ? (
-                      <Bluetooth className="h-16 w-16 text-emerald-500 opacity-50" />
-                    ) : project.title.includes("Bank") ? (
-                      <Building className="h-16 w-16 text-purple-500 opacity-50" />
-                    ) : (
-                      <Blocks className="h-16 w-16 text-cyan-500 opacity-50" />
-                    )}
-                  </div>
+                <div className="relative overflow-hidden bg-gray-900/80 flex items-center justify-center min-h-[200px]">
+                  {project.image ? (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-contain p-4 bg-white"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent flex items-center justify-center md:hidden">
+                        <Building className="h-16 w-16 text-purple-500 opacity-50" />
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex items-center justify-center p-8">
+                      {project.icon === "shopping" && <ShoppingCart className="h-20 w-20 text-emerald-500 opacity-60" />}
+                      {project.icon === "network" && <Network className="h-20 w-20 text-cyan-500 opacity-60" />}
+                      {project.icon === "shield" && <Shield className="h-20 w-20 text-red-500 opacity-60" />}
+                      {project.icon === "building" && <Building className="h-20 w-20 text-purple-500 opacity-60" />}
+                    </div>
+                  )}
                 </div>
 
                 <CardContent className="p-6">

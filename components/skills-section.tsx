@@ -2,74 +2,97 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Shield, Brain, Server, Layout, Terminal, ExternalLink } from "lucide-react"
+import { Shield, Brain, Smartphone, Wrench, Lock, Code, Terminal, ExternalLink } from "lucide-react"
 
 // Define skill URLs
-const skillUrls = {
-  // AI/ML
+const skillUrls: Record<string, string> = {
+  // Languages
+  Kotlin: "https://kotlinlang.org/",
+  Java: "https://www.java.com/",
   Python: "https://www.python.org/",
+  SQL: "https://www.w3schools.com/sql/",
+  JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  LaTeX: "https://www.latex-project.org/",
+
+  // Mobile Development
+  "Android SDK": "https://developer.android.com/",
+  "Jetpack Compose": "https://developer.android.com/jetpack/compose",
+  Firebase: "https://firebase.google.com/",
+  "RESTful APIs": "https://restfulapi.net/",
+  "Room Database": "https://developer.android.com/training/data-storage/room",
+  "MVVM Architecture": "https://developer.android.com/topic/architecture",
+
+  // Cybersecurity
+  "Penetration Testing": "https://owasp.org/www-project-web-security-testing-guide/",
+  "Vulnerability Assessment": "https://www.nist.gov/cybersecurity",
+  "OWASP Top 10": "https://owasp.org/www-project-top-ten/",
+  "Network Security": "https://www.cisco.com/c/en/us/products/security/index.html",
+  "API Security": "https://owasp.org/www-project-api-security/",
+  "Red Teaming": "https://www.mitre.org/",
+
+  // AI/ML & Data Science
   TensorFlow: "https://www.tensorflow.org/",
+  PyTorch: "https://pytorch.org/",
   "Scikit-learn": "https://scikit-learn.org/",
   Pandas: "https://pandas.pydata.org/",
   NumPy: "https://numpy.org/",
-  "Data Modeling": "https://www.ibm.com/topics/data-modeling",
-  "Jupyter Notebook": "https://jupyter.org/",
-  Matplotlib: "https://matplotlib.org/",
+  Jupyter: "https://jupyter.org/",
+  "Data Visualization": "https://matplotlib.org/",
+  "Anomaly Detection": "https://scikit-learn.org/stable/modules/outlier_detection.html",
 
-  // Frontend
-  HTML: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-  CSS: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-  JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  "React.js": "https://reactjs.org/",
-  Bootstrap: "https://getbootstrap.com/",
-
-  // Backend
-  SQL: "https://www.w3schools.com/sql/",
-  "Data Structures & Algorithms": "https://www.geeksforgeeks.org/data-structures/",
+  // Tools & Platforms
   Git: "https://git-scm.com/",
-
-  // Cybersecurity
-  VAPT: "https://www.geeksforgeeks.org/what-is-vulnerability-assessment-and-penetration-testing-vapt/",
-  Cybersecurity: "https://www.nist.gov/cybersecurity",
+  "Android Studio": "https://developer.android.com/studio",
+  "Burp Suite": "https://portswigger.net/burp",
+  Wireshark: "https://www.wireshark.org/",
+  Metasploit: "https://www.metasploit.com/",
   Linux: "https://www.linux.org/",
-  "API Testing": "https://www.postman.com/",
-  SAST: "https://owasp.org/www-community/Source_Code_Analysis_Tools",
-  DAST: "https://owasp.org/www-community/Vulnerability_Scanning_Tools",
-  "Owasp top 10": "https://owasp.org/www-project-top-ten/",
+  Docker: "https://www.docker.com/",
+  Postman: "https://www.postman.com/",
+
+  // Security Practices
+  "Secure SDLC": "https://owasp.org/www-project-integration-standards/",
+  "Threat Modeling": "https://owasp.org/www-community/Threat_Modeling",
+  Encryption: "https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines",
+  "Auth & Authorization": "https://oauth.net/2/",
+  "Protocol Analysis": "https://www.wireshark.org/",
 }
 
 const skills = [
   {
-    category: "AI/ML",
-    icon: <Brain className="h-6 w-6 text-cyan-500" />,
-    skills: [
-      "Python",
-      "TensorFlow",
-      "Scikit-learn",
-      "Pandas",
-      "NumPy",
-      "Data Modeling",
-      "Jupyter Notebook",
-      "Matplotlib",
-    ],
+    category: "Languages",
+    icon: <Code className="h-6 w-6 text-cyan-500" />,
+    skills: ["Kotlin", "Java", "Python", "SQL", "JavaScript", "LaTeX"],
     color: "from-cyan-500 to-blue-500",
   },
   {
-    category: "Frontend",
-    icon: <Layout className="h-6 w-6 text-purple-500" />,
-    skills: ["HTML", "CSS", "JavaScript", "React.js", "Bootstrap"],
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    category: "Backend",
-    icon: <Server className="h-6 w-6 text-emerald-500" />,
-    skills: ["SQL", "Data Structures & Algorithms", "JavaScript", "Python", "Git"],
+    category: "Mobile Development",
+    icon: <Smartphone className="h-6 w-6 text-emerald-500" />,
+    skills: ["Android SDK", "Jetpack Compose", "Firebase", "RESTful APIs", "Room Database", "MVVM Architecture"],
     color: "from-emerald-500 to-green-500",
   },
   {
     category: "Cybersecurity",
     icon: <Shield className="h-6 w-6 text-red-500" />,
-    skills: ["VAPT", "Cybersecurity", "Linux", "API Testing", "SAST", "DAST", "Owasp top 10"],
+    skills: ["Penetration Testing", "Vulnerability Assessment", "OWASP Top 10", "Network Security", "API Security", "Red Teaming"],
+    color: "from-red-500 to-orange-500",
+  },
+  {
+    category: "AI/ML & Data Science",
+    icon: <Brain className="h-6 w-6 text-cyan-500" />,
+    skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy", "Jupyter", "Data Visualization", "Anomaly Detection"],
+    color: "from-cyan-500 to-blue-500",
+  },
+  {
+    category: "Tools & Platforms",
+    icon: <Wrench className="h-6 w-6 text-emerald-500" />,
+    skills: ["Git", "Android Studio", "Burp Suite", "Wireshark", "Metasploit", "Linux", "Docker", "Postman"],
+    color: "from-emerald-500 to-green-500",
+  },
+  {
+    category: "Security Practices",
+    icon: <Lock className="h-6 w-6 text-red-500" />,
+    skills: ["Secure SDLC", "Threat Modeling", "Encryption", "Auth & Authorization", "Protocol Analysis"],
     color: "from-red-500 to-orange-500",
   },
 ]
@@ -110,7 +133,7 @@ export default function SkillsSection() {
             My Skills
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            A comprehensive set of technical skills across AI/ML, full-stack development, and cybersecurity that I've
+            A comprehensive set of technical skills across cybersecurity, Android development, and AI/ML that I've
             developed throughout my career.
           </p>
         </motion.div>
@@ -167,7 +190,7 @@ export default function SkillsSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-gray-300">AI/ML Engineering</span>
+                <span className="text-gray-300">Cybersecurity</span>
                 <span className="text-gray-400">90%</span>
               </div>
               <div className="w-full bg-gray-700 rounded-full h-2">
@@ -175,36 +198,6 @@ export default function SkillsSection() {
                   initial={{ width: 0 }}
                   animate={isInView ? { width: "90%" } : { width: 0 }}
                   transition={{ duration: 1 }}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-gray-300">Full Stack Development</span>
-                <span className="text-gray-400">85%</span>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={isInView ? { width: "85%" } : { width: 0 }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-gray-300">Cybersecurity</span>
-                <span className="text-gray-400">80%</span>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={isInView ? { width: "80%" } : { width: 0 }}
-                  transition={{ duration: 1, delay: 0.4 }}
                   className="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full"
                 />
               </div>
@@ -212,14 +205,14 @@ export default function SkillsSection() {
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-gray-300">Data Structures & Algorithms</span>
+                <span className="text-gray-300">Android Development</span>
                 <span className="text-gray-400">85%</span>
               </div>
               <div className="w-full bg-gray-700 rounded-full h-2">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={isInView ? { width: "85%" } : { width: 0 }}
-                  transition={{ duration: 1, delay: 0.6 }}
+                  transition={{ duration: 1, delay: 0.2 }}
                   className="bg-gradient-to-r from-emerald-500 to-green-500 h-2 rounded-full"
                 />
               </div>
@@ -227,22 +220,52 @@ export default function SkillsSection() {
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-gray-300">Problem Solving</span>
-                <span className="text-gray-400">90%</span>
+                <span className="text-gray-300">AI/ML Engineering</span>
+                <span className="text-gray-400">85%</span>
               </div>
               <div className="w-full bg-gray-700 rounded-full h-2">
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={isInView ? { width: "90%" } : { width: 0 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                  className="bg-gradient-to-r from-cyan-500 to-purple-500 h-2 rounded-full"
+                  animate={isInView ? { width: "85%" } : { width: 0 }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-gray-300">API Testing</span>
+                <span className="text-gray-300">Penetration Testing</span>
+                <span className="text-gray-400">90%</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={isInView ? { width: "90%" } : { width: 0 }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-gray-300">Secure SDLC</span>
+                <span className="text-gray-400">85%</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={isInView ? { width: "85%" } : { width: 0 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  className="bg-gradient-to-r from-cyan-500 to-emerald-500 h-2 rounded-full"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-gray-300">Threat Modeling</span>
                 <span className="text-gray-400">80%</span>
               </div>
               <div className="w-full bg-gray-700 rounded-full h-2">
@@ -250,7 +273,7 @@ export default function SkillsSection() {
                   initial={{ width: 0 }}
                   animate={isInView ? { width: "80%" } : { width: 0 }}
                   transition={{ duration: 1, delay: 1 }}
-                  className="bg-gradient-to-r from-purple-500 to-emerald-500 h-2 rounded-full"
+                  className="bg-gradient-to-r from-red-500 to-cyan-500 h-2 rounded-full"
                 />
               </div>
             </div>
