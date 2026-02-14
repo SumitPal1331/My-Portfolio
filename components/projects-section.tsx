@@ -46,9 +46,9 @@ export default function ProjectsSection() {
         "Developed machine learning model achieving 94% accuracy in detecting network anomalies and malicious traffic patterns. Processed and analyzed 500K+ network packets using feature engineering and ensemble learning techniques. Created real-time alerting dashboard for SOC teams with automated threat classification and incident prioritization.",
       period: "2025",
       technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
-      image: "",
+      image: "/images/network-intrusion-detection.jpg",
       color: "cyan",
-      link: "",
+      link: "https://network-ids.vercel.app/",
       icon: "network",
     },
     {
@@ -114,7 +114,10 @@ export default function ProjectsSection() {
                         className="w-full h-full object-contain p-4 bg-white"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent flex items-center justify-center md:hidden">
-                        <Building className="h-16 w-16 text-purple-500 opacity-50" />
+                        {project.icon === "network" && <Network className={`h-16 w-16 text-cyan-500 opacity-50`} />}
+                        {project.icon === "building" && <Building className={`h-16 w-16 text-purple-500 opacity-50`} />}
+                        {project.icon === "shopping" && <ShoppingCart className={`h-16 w-16 text-emerald-500 opacity-50`} />}
+                        {project.icon === "shield" && <Shield className={`h-16 w-16 text-red-500 opacity-50`} />}
                       </div>
                     </>
                   ) : (
